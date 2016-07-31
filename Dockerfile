@@ -54,6 +54,7 @@ ENV RABBITMQ_DEBIAN_VERSION 3.6.3-1
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		rabbitmq-server=$RABBITMQ_DEBIAN_VERSION \
+	&& rabbitmq-plugins enable rabbitmq_management \
 	&& rm -rf /var/lib/apt/lists/*
 
 # /usr/sbin/rabbitmq-server has some irritating behavior, and only exists to "su - rabbitmq /usr/lib/rabbitmq/bin/rabbitmq-server ..."
